@@ -2,8 +2,9 @@
 from scapy.layers.l2 import ARP
 
 # Network Scanner Algorithm: Goal -> Discover clients on a Network: Setups:
+
 # 1. Create ARP request directed to broadcast MAC asking for IP
-# a. Use ARP to ask who has target IP
+    # a. Use ARP to ask who has target IP, test changes for github
 def scan(ip):
     # create an ARP packet object
     arp_request = ARP(pdst=ip)
