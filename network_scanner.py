@@ -1,5 +1,6 @@
 #!usr/bin/env python
-from scapy.layers.l2 import ARP
+import scapy.layers.l2 as scapyll2
+from scapy.all import *
 
 # Network Scanner Algorithm: Goal -> Discover clients on a Network: Setups:
 
@@ -7,14 +8,19 @@ from scapy.layers.l2 import ARP
     # a. Use ARP to ask who has target IP, test changes for github
 def scan(ip):
     # create an ARP packet object
-    arp_request = ARP(pdst=ip)
-    print(arp_request.summary())
+    arp_request = scapyll2.ARP(pdst=ip)
+    # print(arp_request.summary())
+    # create Ethernet object
+    broadcast = scapyll2.Ether()
+    ls(scapyll2.Ether())
+
+
+    # b. Set destination MAC to broadcast MAC
+    # Create ethernet frame to be sent to the broadcast MAC address
 
 
 # slash notation /24, show all clients range 192.168.63.1 to 192.168.63.255
 scan("192.168.63.2/24")
-
-# b. Set destination MAC to broadcast MAC
 
 # 2. Send packet and receive result
 # 3. Parse the response
