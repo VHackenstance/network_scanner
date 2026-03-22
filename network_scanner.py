@@ -1,21 +1,25 @@
 #!usr/bin/env python
 import scapy.layers.l2 as scapyll2
-from scapy.all import * 
+# import scapy.all as scapy
 
 # Network Scanner Algorithm: Goal -> Discover clients on a Network: Setups:
-
-# 1. Create ARP request directed to broadcast MAC asking for IP
-    # a. Use ARP to ask who has target IP, test changes for github
+#(1) Create ARP request directed to broadcast MAC asking for IP
 def scan(ip):
-    # create an ARP packet object
+    #(a) Use ARP to ask who has target IP, to do so create an ARP packet object.
     arp_request = scapyll2.ARP(pdst=ip)
-    # print(arp_request.summary())
-    # create Ethernet object
-    broadcast = scapyll2.Ether()
-    ls(scapyll2.Ether())
+    print("Here is our ARP Request Summary: " + arp_request.summary())
+    arp_request.show()
 
+    #(b) Set destination MAC to broadcast MAC, to do so create an Ethernet object.
+    broadcast = scapyll2.Ether(dst="ff:ff:ff:ff:ff:ff")
+    print("Here is our Broadcast Summary: " + broadcast.summary())
+    broadcast.show()
 
-    # b. Set destination MAC to broadcast MAC
+    # Create new packet, combine packets created, using slash "/" notation Scapy feature.
+    arp_request_broadcast = broadcast/arp_request
+    print("Here is our Broadcast ARP Request Summary: " + arp_request_broadcast.summary())
+    arp_request_broadcast.show()
+    
     # Create ethernet frame to be sent to the broadcast MAC address
 
 
