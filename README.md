@@ -1,61 +1,21 @@
-<h1>A First Level Header</h1>
-<h2>A Second Level Header</h2>
-<p>
-Now is the time for all good men to come to
-the aid of their country. This is just a
-regular paragraph.
-</p>
 
-<p>
-The quick brown fox jumped over the lazy
-dog's back.
-</p>
 
-<h3>Header 3 Code</h3>
-<p>I strongly recommend against using any
-<code>&lt;blink&gt;</code> tags.</p>
+<h2>Network Scanner</h2>
+<h3>Goal: Discover clients on a Network:</h3>
 
-<p>I wish SmartyPants used named entities like
-<code>&amp;mdash;</code> instead of decimal-encoded
-entities like <code>&amp;#8212;</code>.</p>
-
-<blockquote>
-    <p>This is a blockquote.</p>
-
-    <p>This is the second paragraph in the blockquote.</p>
-
-    <h2>This is an H2 in a blockquote</h2>
-</blockquote>
-
-<img src="/path/to/img.jpg" alt="alt text" title="Title" />
-
-<p>Some of these words <em>are emphasized</em>.
-Some of these words <em>are emphasized also</em>.</p>
-
-<p>Use two asterisks for <strong>strong emphasis</strong>.
-Or, if you prefer, 
-    <strong>
-        use two underscores instead
-    </strong>.
-</p>
-<ul>
-<li>Candy.</li>
-<li>Gum.</li>
-<li>Booze.</li>
-</ul>
+<h4>Network Scanner Algorithm:</h4>
 <ol>
-<li>Red</li>
-<li>Green</li>
-<li>Blue</li>
+<li>Create ARP request directed to broadcast MAC asking for IP.
+<p>/24 shows clients in the full range</p>
+</li>
+<li>Send packet and receive result.</li>
+<li>Parse the response</li>
+<li>Print Result</li>
 </ol>
-<ul>
-<li>
-    <p>A list item.</p>
-    <p>With multiple paragraphs.</p>
-</li>
-<li>
-    <p>Another item in the list.</p>
-</li>
-</ul>
-<p>This is an <a href="http://example.com/">
-example link</a>.</p>
+
+<h4>ISSUE:  ARP requests are logged. </h4>
+<h4>Solution (Needs to be implemented)</h4>
+<p>import logging</p>
+<p>logging.getLogger("scapy").setLevel(logging.CRITICAL)</p>
+<p>This ensures Scapy does not print warnings or informational messages.</p>
+<p>Use before running scapy functions like sniff() or sent()</p>
