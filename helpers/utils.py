@@ -1,20 +1,24 @@
 #!usr/bin/env python
-import scapy.layers.l2 as scapyll2
+from scapy.layers.l2 import Ether, ARP, srp
 # import scapy.all as scapy
 
 #(1) Create ARP request directed to broadcast MAC asking for IP
 def scan(ip):
-    # Use ARP to ask who has target IP, to do so create an ARP packet object.
-    arp_request = scapyll2.ARP(pdst=ip)
-    # print("Here is our ARP Request Summary: " + arp_request.summary())
-    # arp_request.show()
+    # create ARP request packet
+    arp_request = ARP(pdst=ip)
+    # print(arp_request.summary())
 
-    # Set destination MAC to broadcast MAC, to do so create an Ethernet object.
-    broadcast = scapyll2.Ether(dst="ff:ff:ff:ff:ff:ff")
-    # print("Here is our Broadcast Summary: " + broadcast.summary())
-    # broadcast.show()
+    # Create ethernet frame with broadcast MAC
+    broadcast = Ether(dst="ff:ff:ff:ff:ff:ff")
+    # print(broadcast.summary())
 
-    # New packet, combine packets created, using slash "/" notation Scapy feature.
-    arp_request_broadcast = broadcast/arp_request
-    print("Here is our Broadcast ARP Request Summary: " + arp_request_broadcast.summary())
-    arp_request_broadcast.show()
+    # Combine packets
+    packet = broadcast / arp_request
+    # packet.show()
+
+    # send and receive response
+    ##### IMPORTANT!!!! #####
+    ##### This step requires we run the script with SUDO #####
+    answered, unanswered = srp(packet, iface="eth0", timeout=2, verbose=False)
+    print(answered.summary())
+

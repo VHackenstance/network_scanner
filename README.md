@@ -17,5 +17,5 @@
 <h4>Solution (Needs to be implemented)</h4>
 <p>import logging</p>
 <p>logging.getLogger("scapy").setLevel(logging.CRITICAL)</p>
-<p>This ensures Scapy does not print warnings or informational messages.</p>
-<p>Use before running scapy functions like sniff() or sent()</p>
+<p>## This ensures Scapy does not print warnings or informational messages.</p>
+<p>Use before running scapy functions like sniff() or sent() ##</p>
