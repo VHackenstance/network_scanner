@@ -1,6 +1,6 @@
 #!usr/bin/env python
 import scapy.layers.l2 as scapyll2
-from scapy.all import *
+from scapy.all import * 
 
 # Network Scanner Algorithm: Goal -> Discover clients on a Network: Setups:
 
