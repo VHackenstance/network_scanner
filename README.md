@@ -18,7 +18,7 @@
 <h4>ISSUE 1:  This script has to be run by sudo. </h4>
 <h4>Because srp makes socket access requests only a root user can do</h4>
 <p>$ sudo python(#) network_scanner.py </p>
-</h4> Have introduced a snippet of code to cancel operation if sudo is not used </h4>
+<h4>SOLUTION: Introduced code snippet to cancel script if sudo is not used. </h4>
 
 <h4>ISSUE 2:  ARP requests are logged. </h4>
 <h4>Solution (Needs to be implemented)</h4>
