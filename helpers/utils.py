@@ -9,7 +9,7 @@ def check_for_root():
 
 #(1) Create ARP request directed to broadcast MAC asking for IP
 def scan(ip):
-    #(a) create ARP request packet, with MAC from IP
+    #(a) Create ARP request packet, get MAC from IP
     arp_request = ARP(pdst=ip)
     print(os.linesep + "ARP Request Summary: " + arp_request.summary() + os.linesep)
     #(b) Create ethernet frame (packet) with broadcast MAC
@@ -20,19 +20,17 @@ def scan(ip):
     return broadcast_arp_request
 
 #(2) send and receive response
-def send_receive_response(packet, iface, timeout, verbose):
+def send_receive_response(packet, timeout, verbose):
     # Option: remove unanswered_list, add [0] end srp call. Keep unanswered contents interesting.
-    answered_list, unanswered_list = srp(packet, iface=iface, timeout=timeout, verbose=verbose)
+    answered_list, unanswered_list = srp(packet, timeout=timeout, verbose=verbose)
     # print(answered_list.summary())
     # print(unanswered_list.summary())
     return answered_list
 
 #(3) Parse the response - answered - and extract the information we want from it.
 def parse_answered_list(answered_list):
+    print(" IP Address\t\tMAC Address\n ---------------------------------------- ")
     for sent, received in answered_list:
-        # Element first part is request sent, next the answer, separated by comma
-        # Get the IP Address
-        print(received.psrc)
-        # Get the MAC Address
-        print(received.hwsrc)
-        print("********" + os.linesep)
+        # Get the IP and MAC Address
+        print(" " + received.psrc + "\t\t" + received.hwsrc)
+
