@@ -25,7 +25,10 @@ def send_receive_response(packet, iface, timeout, verbose):
     answered_list, unanswered_list = srp(packet, iface=iface, timeout=timeout, verbose=verbose)
     # print(answered_list.summary())
     # print(unanswered_list.summary())
+    return answered_list
 
+#(3) Parse the response - answered - and extract the information we want from it.
+def parse_answered_list(answered_list):
     for sent, received in answered_list:
         # Element first part is request sent, next the answer, separated by comma
         # Get the IP Address
@@ -33,10 +36,3 @@ def send_receive_response(packet, iface, timeout, verbose):
         # Get the MAC Address
         print(received.hwsrc)
         print("********" + os.linesep)
-
-
-
-
-
-#(3) Parse the response - answered - and extract the information we want from it.
-
