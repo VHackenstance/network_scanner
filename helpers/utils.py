@@ -30,7 +30,14 @@ def send_receive_response(packet, timeout, verbose):
 #(3) Parse the response - answered - and extract the information we want from it.
 def parse_answered_list(answered_list):
     print(" IP Address\t\tMAC Address\n ---------------------------------------- ")
+    clients_list = []
     for sent, received in answered_list:
-        # Get the IP and MAC Address
+        # (4) Print the IP and MAC Address
         print(" " + received.psrc + "\t\t" + received.hwsrc)
+        # Capture the results in a list of dictionaries.
+        client_dict = {"ip": received.psrc, "mac": received.hwsrc}
+        clients_list.append(client_dict)
+    print("\n List of Dictionaries, MAC & IP each host\n ---------------------------------------- ")
+    print(clients_list)
+
 

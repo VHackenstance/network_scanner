@@ -26,3 +26,6 @@
 <p>logging.getLogger("scapy").setLevel(logging.CRITICAL)</p>
 <p>## This ensures Scapy does not print warnings or informational messages.</p>
 <p>Use before running scapy functions like sniff() or sent() ##</p>
+
+<h3>Python Dictionaries</h3>
+<p>Are JavaScript JSON </p>
