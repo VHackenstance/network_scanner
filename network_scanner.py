@@ -1,11 +1,14 @@
 #!usr/bin/env python
 # from helpers.nw_scanner_single_function import nw_scanner
 # nw_scanner("192.168.1.254/24")
-from helpers.utils import check_for_root, scan, send_receive_response, parse_answered_list, print_result
+from helpers.utils import (check_for_root, scan, send_receive_response,
+                           parse_answered_list, print_result, is_valid_iprange, get_arguments)
 
+# Pre step: Accept arguments from user and check format is valid
+iprange = get_arguments(is_valid_iprange)
 check_for_root()
 #(1) Create ARP request to broadcast IP for MAC
-broadcast_arp_response_packet = scan("192.168.1.254/24")
+broadcast_arp_response_packet = scan(iprange)
 #(2) send and receive response
 answered_list = send_receive_response(broadcast_arp_response_packet,2, False)
 #(3) Parse the results.

@@ -4,6 +4,17 @@
 <h3>Goal: Discover all clients on the same Network:</h3>
 <h4>This script requires root privileges.</h4>
 
+<p>To run the script please provide arguments in the following format. 
+From the command line, inside the "Change_Mac" Project Folder, run.</p>
+<h3>
+python[#] network_scanner.py -i [IPRANGE] [IPRANGE/SUBNET]
+</h3>
+<p>
+eg, $ python network_scanner.py -i 192.168.1.254/24 
+</p>
+<p>
+OR, $ python network_scanner.py --iprange 192.168.1.254/24 
+</p>
 
 <h4>Network Scanner Algorithm:</h4>
 <ol>
