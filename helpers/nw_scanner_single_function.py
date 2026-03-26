@@ -12,8 +12,12 @@ def nw_scanner(ip):
     broadcast_arp_request = broadcast / arp_request # Combine the broadcast and arp_request packets
     #(2) Send and receive response
     answered_list, unanswered_list = srp(broadcast_arp_request, timeout=2, verbose=False)
-    # (3) Parse response, & (4) Print response
-    print(" IP Address\t\tMAC Address\n ---------------------------------------- ")
+    #(3) Parse response
+    clients_list = []
     for sent, received in answered_list:
-        # Get the IP and MAC Address
-        print(" " + received.psrc + "\t\t" + received.hwsrc)
+        client_dict = {"ip": received.psrc, "mac": received.hwsrc}
+        clients_list.append(client_dict)
+    #(4) Print response
+    print(" IP Address\t\tMAC Address\n ---------------------------------------- ")
+    for client in clients_list:
+        print("", client["ip"] + "\t\t" + client["mac"])

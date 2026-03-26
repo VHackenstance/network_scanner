@@ -15,6 +15,16 @@
 <li>Print Result</li>
 </ol>
 
+<h4>Script Versions</h4>
+<p>There are three versions of the script</p>
+<ol>
+<li>utils: contains separate functions, executed in network_scanner.py, to 
+demonstrate the relationships, and reduce a single outcome to a functional components. </li>
+<li>network_scanner_single_function: what it says on the box</li>
+<li>network_scanner_uncommented: the bare bones, what you should use if 
+you want to make this script part of your project.</li>
+</ol>
+
 <h4>ISSUE 1:  This script has to be run by sudo. </h4>
 <h4>Because srp makes socket access requests only a root user can do</h4>
 <p>$ sudo python(#) network_scanner.py </p>
