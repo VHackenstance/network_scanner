@@ -4,12 +4,14 @@
 # from network_scanner_uncommented import nw_scanner
 # nw_scanner()
 
-from helpers.utils import (check_for_root, scan, send_receive_response,
-                           parse_answered_list, print_result, is_valid_iprange, get_arguments)
+from helpers.utils import (
+    check_for_root, scan, send_receive_response, parse_answered_list,
+    print_result, is_valid_iprange, get_arguments )
 
 # Pre step: Accept arguments from user and check format is valid
 iprange = get_arguments(is_valid_iprange)
 
+# Make sure sudo is being used
 check_for_root()
 #(1) Create ARP request to broadcast IP for MAC
 broadcast_arp_response_packet = scan(iprange)

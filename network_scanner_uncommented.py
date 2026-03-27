@@ -1,6 +1,6 @@
 #!usr/bin/env python
 from scapy.layers.l2 import Ether, ARP, srp
-import optparse
+import argparse
 import os
 import re
 
@@ -8,8 +8,8 @@ def nw_scanner():
     if os.geteuid() != 0:
         print("Script requires root. Use sudo.")
         exit(1)
-    parser = optparse.OptionParser()
-    parser.add_option("-i", "--iprange", dest="iprange", help="IP Range to search for clients /notation.")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-i", "--iprange", dest="iprange", help="IP Range to search for clients /notation.")
     (opt, args) = parser.parse_args()
     if not opt.iprange:
         parser.error("[-] Please specify an IP Range, use --help for more info")

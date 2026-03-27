@@ -1,6 +1,6 @@
 #!usr/bin/env python
 from scapy.layers.l2 import Ether, ARP, srp
-import optparse
+import argparse
 import os
 import re
 
@@ -9,7 +9,7 @@ def check_for_root():
         print("This script requires root privileges. Please run again with sudo.")
         exit(1)
 
-#(pre step) get the IP Range as an argument from the User
+#(PRE STEP) get the IP Range as an argument from the User
 # Check to see if the IP Range has a valid slash format.
 def is_valid_iprange(iprange):
     pattern = r'^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/(3[0-2]|[1-2][0-9]|[0-9]))$'
@@ -17,8 +17,8 @@ def is_valid_iprange(iprange):
 
 # Get a value from the user for IP Range.
 def get_arguments(is_valid_range):
-    parser = optparse.OptionParser()
-    parser.add_option("-i", "--iprange", dest="iprange", help="IP Range to search for clients / notation.")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-i", "--iprange", dest="iprange", help="IP Range to search for clients / notation.")
     (opt, args) = parser.parse_args()
     if not opt.iprange:
         parser.error("[-] Please specify an IP Range, use --help for more info")
