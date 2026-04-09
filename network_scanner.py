@@ -1,6 +1,6 @@
 #!usr/bin/env python
 
-# from helpers.nw_scanner_single_function import nw_scanner
+# from utils.nw_scanner_single_function import nw_scanner
 # from network_scanner_uncommented import nw_scanner
 # nw_scanner()
 

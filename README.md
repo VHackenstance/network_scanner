@@ -1,5 +1,3 @@
-
-
 <h2>Network Scanner</h2>
 <h3>Goal: Discover all clients on the same Network:</h3>
 <h4>This script requires root privileges.</h4>
